@@ -1,5 +1,8 @@
 import 'package:camera/camera.dart';
+import 'package:face_camera/face_camera.dart';
 import 'package:face_collection/camera_process/face_detector_view%20.dart';
+import 'package:face_collection/face_camera/face_camera_view.dart';
+import 'package:face_collection/face_detection_app/face_detection_app.dart';
 import 'package:face_collection/owl_detection_camera/detection_camera.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +11,7 @@ List<CameraDescription> cameras = [];
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   cameras = await availableCameras();
+  await FaceCamera.initialize();
   runApp(const MyApp());
 }
 
@@ -69,6 +73,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   }));
                 },
                 child: const Text('camera_process')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const FaceCameraView();
+                  }));
+                },
+                child: const Text('face_camera')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) {
+                    return const FaceDetectionPage();
+                  }));
+                },
+                child: const Text('face_detection_page')),
           ],
         ),
       ),

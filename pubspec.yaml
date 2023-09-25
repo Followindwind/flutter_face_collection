@@ -39,8 +39,11 @@ dependencies:
   face_camera: ^0.0.8
   camera_process: ^1.0.1
   camera: ^0.10.5+3
-  image_picker: ^0.7.2
+  image_picker: ^0.8.4+4
   permission_handler: ^11.0.0
+  face_detection: ^0.0.6
+  processing_camera_image: ^0.0.12
+  rxdart: ^0.27.7
 
 dev_dependencies:
   flutter_test:
